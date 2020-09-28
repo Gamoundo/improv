@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from './logo.svg';
+
 import './App.css';
 
 function App() {
@@ -9,7 +9,9 @@ let help = ["graham crackers", "interpretive dance", "diplomacy", "hidden bobby 
 
 let emotions = ["happy", "sad", "confused", "scared"]
 
-
+function changeStory() {
+  window.location = '/'
+}
   return (
     <div className="App">
       <img src="https://pm1.narvii.com/5718/5b8a185d6f2cdb082383682653251e5d18131292_00.jpg" alt="anime speech search"/>
@@ -20,6 +22,7 @@ let emotions = ["happy", "sad", "confused", "scared"]
         <p> Situation: {situations[Math.floor(Math.random()* situations.length)]}</p>
       <p> Help: {help[Math.floor(Math.random()* help.length)]}</p>
       <p> Emotion: {emotions[Math.floor(Math.random()* emotions.length)]}</p>
+      <button onClick= {changeStory}> New story</button>
         </div>
       
     </div>
