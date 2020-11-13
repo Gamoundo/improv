@@ -1,5 +1,5 @@
 import React from 'react';
-
+import Timer from './Timer'
 import './App.css';
 
 function App() {
@@ -24,7 +24,7 @@ function changeStory() {
       <p> Emotion: {emotions[Math.floor(Math.random()* emotions.length)]}</p>
       <button onClick= {changeStory}> New story</button>
         </div>
-      
+      <Timer/>
     </div>
   );
 }
