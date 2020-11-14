@@ -6,16 +6,27 @@ class Timer extends React.Component {
     time: 180
  }
 
- countdown(x) {
-    while (x > 0) {
-       x = x - 1
-    } 
- }
+ componentDidMount() {
+    this.myInterval = setInterval(() => {
+        const { time } = this.state
+
+        if (time > 0) {
+            this.setState(({ time }) => ({
+                time: time - 1
+            }))
+        }
+    }, 1000)
+}
+
+
+
+
+ 
     render() {
         
      return(
          <div>
-             { this.countdown ? this.countdown(180): 0}
+             {this.state.time}
          </div>
      )
  }   
