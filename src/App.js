@@ -1,28 +1,39 @@
 import React from 'react';
 import Game from './Game'
 import './App.css';
+import Login from './Login'
 
-function App() {
+const storedUser= window.localStorage.getItem("Improv");
 
-let situations = ["shark attack", "stubbed toe", "totaled boss's car", "vengeful ghost", "caught committing crime", "It is M-fing Monday!", "Surrounded by clowns", "World ends in a hour", "Witnessed an alien abduction", "Ran out of goldfish", "trapped with a shapehifter", "Out of coffee"]
-let help = ["graham crackers", "interpretive dance", "diplomacy", "hidden bobby pin", "smoke bomb", "hug", "singing", "pineapple pizza", "black belt in..."]
-
-let emotions = ["happy", "sad", "confused", "scared"]
+class App extends React.Component {
 
 
+
+
+state = {
+  name: storedUser ? JSON.parse(storedUser).name : ""
+}
+
+
+render() {
   return (
     <div className="App">
       <img src="https://pm1.narvii.com/5718/5b8a185d6f2cdb082383682653251e5d18131292_00.jpg" alt="anime speech search"/>
       <h1>Orator</h1>
       <h3>Rules</h3>
+      <h4> {this.state.name} </h4>
       <p> basically you have three minutes to construct a story using the provided situation and help. your goal is to make your audience feel the emotion shown to you.</p>
         <div className="situation">
         
         </div>
-      <button> Join Game</button>
-      <button> Create Game</button>
+      {this.state.name !== "" && <button> Join Game</button>}
+      {this.state.name !== "" && <button> Create Game</button>}
+      {this.state.name == "" && <Login />}
     </div>
   );
+}
+
+  
 }
 
 export default App;
