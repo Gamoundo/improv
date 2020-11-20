@@ -1,7 +1,12 @@
-.App {
-  text-align: center;
+body {
   background-image: radial-gradient(circle, #22db15, #5bde25, #7ce135, #96e344, #ace653, #bcd944, #c8cb39, #d2bd33, #d69a17, #d57411, #cf4c1d, #c2132a);
   height: 100vh;
+}
+
+.App {
+  text-align: center;
+  /* background-image: radial-gradient(circle, #22db15, #5bde25, #7ce135, #96e344, #ace653, #bcd944, #c8cb39, #d2bd33, #d69a17, #d57411, #cf4c1d, #c2132a);
+  height: 100vh; */
 }
 
 .App-logo {
@@ -34,4 +39,22 @@
   color: wheat;
   text-align: left;
   font-size: large;
+}
+
+.users {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.user {
+  border: yellow;
+  padding: 2px 8px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background-color: rgb(163, 252, 47);
+  width: 20vw;
+  justify-content: flex-end;
 }
