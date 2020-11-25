@@ -1,6 +1,7 @@
 
 import React from 'react';
 import Timer from './Timer'
+import Voting from './Voting';
 
 class Game extends React.Component{
     state = {
@@ -38,7 +39,7 @@ return (
       <p> Emotion: {emotions[Math.floor(Math.random()* emotions.length)]}</p>
       <button onClick= {this.changeStory}> New story</button>
         </div>
-      
+      <Voting />
     </div>
   );
 }

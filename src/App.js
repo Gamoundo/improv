@@ -14,6 +14,9 @@ state = {
   name: storedUser ? JSON.parse(storedUser).name : ""
 }
 
+playGame() {
+  window.location = '/Game'
+}
 
 render() {
   return (
@@ -26,10 +29,10 @@ render() {
         <div className="situation">
         
         </div>
-      {this.state.name !== "" && <button> Join Game</button>}
+      {this.state.name !== "" && <button onClick={this.playGame}> Join Game</button>}
       {this.state.name !== "" && <button> Create Game</button>}
       {this.state.name == "" && <Login />}
-      <Game />
+      {/* <Game /> */}
     </div>
   );
 }
