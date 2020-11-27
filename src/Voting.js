@@ -10,7 +10,8 @@ const emotions = [
 
 function Voting() {
     return(
-        <div>
+        <div className='select'>
+<h3> Vote!</h3>
 <Select options={emotions}/>
         </div>
     )

@@ -1,6 +1,7 @@
 import React from 'react';
 import Game from './Game'
 import './App.css';
+import { BrowserRouter as Router, Route} from "react-router-dom"
 import Login from './Login'
 
 const storedUser= window.localStorage.getItem("Improv");
@@ -20,7 +21,8 @@ playGame() {
 
 render() {
   return (
-    <div className="App">
+    <Router>
+      <div className="App">
       <img src="https://pm1.narvii.com/5718/5b8a185d6f2cdb082383682653251e5d18131292_00.jpg" alt="anime speech search"/>
       <h1>Orator</h1>
       <h3>{this.state.name}</h3>
@@ -33,7 +35,10 @@ render() {
       {this.state.name !== "" && <button> Create Game</button>}
       {this.state.name == "" && <Login />}
       {/* <Game /> */}
+      <Route exact path="/Game" component= {Game}/>
     </div>
+    </Router>
+    
   );
 }
 

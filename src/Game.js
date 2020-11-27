@@ -39,7 +39,7 @@ return (
       <p> Emotion: {emotions[Math.floor(Math.random()* emotions.length)]}</p>
       <button onClick= {this.changeStory}> New story</button>
         </div>
-      <Voting />
+      
     </div>
   );
 }

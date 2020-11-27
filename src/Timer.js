@@ -1,9 +1,10 @@
 import React from 'react';
+import Voting from './Voting';
 
 class Timer extends React.Component {
  
  state = {
-    time: 180
+    time: 10
  }
 
  componentDidMount() {
@@ -27,6 +28,7 @@ class Timer extends React.Component {
      return(
          <div>
              {this.state.time}
+             {this.state.time == 0 && <Voting />}
          </div>
      )
  }   

@@ -58,3 +58,14 @@ body {
   width: 20vw;
   justify-content: flex-end;
 }
+
+.select {
+  border: yellow;
+  padding: 4px 10px;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  width: 20vw;
+  justify-content: flex-start;
+  
+}
