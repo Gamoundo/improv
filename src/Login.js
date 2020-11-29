@@ -23,13 +23,13 @@ function Login() {
     return (
         <div>
 
-<button variant="primary" onClick={handleShow}>
+{/* <button variant="primary" onClick={handleShow}>
         Register?
-      </button>
+      </button> */}
             <Modal show={show}>
             <Modal.Header closeButton onClick={handleClose}>
                 <Modal.Title id="registerForm">
-                    Join us? Yes!?
+                    Be named!
                 </Modal.Title>
             </Modal.Header>
             <Modal.Body>
@@ -45,7 +45,7 @@ function Login() {
                     
                      
                 </form>
-                <ReactPlayer url='https://www.youtube.com/watch?v=paYa6m5yJEE&list=PLb0mEpWg8c6W8ns6LR8uMfY-Pue6fl5Pe&index=25&t=0s'/>
+                <ReactPlayer url='https://www.youtube.com/watch?v=U0CGsw6h60k'/>
             </Modal.Body>
         </Modal>
         </div>

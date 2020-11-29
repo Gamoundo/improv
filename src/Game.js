@@ -9,6 +9,7 @@ class Game extends React.Component{
     }
 
  changeStory() {
+  localStorage.clear()
   window.location = '/'
 } 
 
@@ -37,7 +38,7 @@ return (
         <p> Situation: {situations[Math.floor(Math.random()* situations.length)]}</p>
       <p> Help: {help[Math.floor(Math.random()* help.length)]}</p>
       <p> Emotion: {emotions[Math.floor(Math.random()* emotions.length)]}</p>
-      <button onClick= {this.changeStory}> New story</button>
+      <button onClick= {this.changeStory}> log out?</button>
         </div>
       
     </div>

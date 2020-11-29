@@ -3,7 +3,7 @@ import Game from './Game'
 import './App.css';
 import { BrowserRouter as Router, Route} from "react-router-dom"
 import Login from './Login'
-
+import logo from './logo.svg'
 const storedUser= window.localStorage.getItem("Improv");
 
 class App extends React.Component {
@@ -36,6 +36,7 @@ render() {
       {this.state.name == "" && <Login />}
       {/* <Game /> */}
       <Route exact path="/Game" component= {Game}/>
+      <img src={logo} alt="Logo" />
     </div>
     </Router>
     
