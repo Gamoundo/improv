@@ -4,7 +4,7 @@ class CreateUsers < ActiveRecord::Migration[6.0]
       t.string :name
       t.integer :points
       t.integer :gameroom_id
-
+      
       t.timestamps
     end
   end

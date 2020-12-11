@@ -17,7 +17,8 @@ ActiveRecord::Schema.define(version: 2020_11_12_194501) do
 
   create_table "gamerooms", force: :cascade do |t|
     t.integer "rounds"
-    t.integer "playersnumm"
+    t.integer "playersnum"
+    t.integer "player_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
