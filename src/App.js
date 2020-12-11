@@ -4,6 +4,7 @@ import './App.css';
 import { BrowserRouter as Router, Route} from "react-router-dom"
 import Login from './Login'
 import { ReactComponent as Logo } from './logo.svg';
+
 const storedUser= window.localStorage.getItem("Improv");
 
 class App extends React.Component {
@@ -16,8 +17,29 @@ state = {
 }
 
 playGame() {
-  window.location = '/Game'
+  window.location = '/Game' 
 }
+
+createGame= () =>{
+  
+  let obj = {
+    name: this.state.name
+
+  }
+  fetch('http://localhost:3000/gamerooms', {
+    method: 'POST',
+    headers: {"Content-Type": 'application/json'},
+    body: JSON.stringify(obj)
+
+  }
+    ).then(r => r.json())
+    .then(game => {
+      console.log(game) 
+      window.location = `/Game/${game.id}`
+    })
+
+}
+
 
 render() {
   return (
@@ -32,10 +54,10 @@ render() {
         
         </div>
       {this.state.name !== "" && <button onClick={this.playGame}> Join Game</button>}
-      {this.state.name !== "" && <button> Create Game</button>}
-      {this.state.name == "" && <Login />}
+      {this.state.name !== "" && <button onClick= {this.createGame}> Create Game</button>}
+      {this.state.name === "" && <Login />}
       {/* <Game /> */}
-      <Route exact path="/Game" component= {Game}/>
+      <Route exact path="/Game/:id" component= {Game}/>
       <Logo />
     </div>
     </Router>

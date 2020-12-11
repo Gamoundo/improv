@@ -8,7 +8,7 @@ import ReactPlayer from "react-player"
 
 function Login() {
     const [show, setShow] = useState(true);
-    const handleClose = () =>  setShow(false);
+    // const handleClose = () =>  setShow(false);
     const handleShow = () =>  setShow(true);
 
     const handleSubmit = (e) => {
@@ -17,6 +17,7 @@ function Login() {
             name: e.target.name.value
         }
         window.localStorage.setItem("Improv", JSON.stringify(user));
+        setShow(false)
         window.location = '/'
 
     }
@@ -27,7 +28,7 @@ function Login() {
         Register?
       </button> */}
             <Modal show={show}>
-            <Modal.Header closeButton onClick={handleClose}>
+            <Modal.Header >
                 <Modal.Title id="registerForm">
                     Be named!
                 </Modal.Title>
@@ -41,7 +42,7 @@ function Login() {
                     
                     
                     
-                    <input type="submit" value="Name me" onClick={handleClose} />
+                    <input type="submit" value="Name me"  />
                     
                      
                 </form>
