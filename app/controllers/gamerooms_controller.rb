@@ -9,6 +9,15 @@ def create
     render json: game 
 end
 
+def join
+
+end
+
+
+def update
+
+end
+
 
 
 end
