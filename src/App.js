@@ -4,6 +4,7 @@ import './App.css';
 import { BrowserRouter as Router, Route} from "react-router-dom"
 import Login from './Login'
 import { ReactComponent as Logo } from './logo.svg';
+import JoinGame from './JoinGame';
 
 const storedUser= window.localStorage.getItem("Improv");
 
@@ -55,7 +56,7 @@ render() {
           <div className="situation">
           
           </div>
-        {this.state.name !== "" && <button onClick={this.playGame}> Join Game</button>}
+        {this.state.name !== "" && <JoinGame />}
         {this.state.name !== "" && <button onClick= {this.createGame}> Create Game</button>}
         {this.state.name === "" && <Login />}
         {/* <Game /> */}
