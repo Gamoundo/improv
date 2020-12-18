@@ -43,7 +43,7 @@ createGame= () =>{
 
 
 render() {
-  if (window.location = '/home') {
+  
     return (
     
       <Router>
@@ -67,21 +67,11 @@ render() {
       </Router>
       
     );   
-  } else {
-    return (
-      <Router>
-        <div>
-        <Route exact path="/home" component= {App}/>
-        <Route exact path="/Game/:id" component= {Game}/>
-        <Logo />
-        </div>
-      </Router>
-    )
-  }
+  } 
   
 }
 
   
-}
+
 
 export default App;

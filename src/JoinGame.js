@@ -3,16 +3,30 @@ import Modal from "react-bootstrap/Modal"
 import ReactPlayer from "react-player"
 
 function JoinGame() {
-    const [show, setShow] = useState(true);
+    const [show, setShow] = useState(false);
     const handleClose = () =>  setShow(false);
     const handleShow = () =>  setShow(true);
-
+    const player= window.localStorage.getItem("Improv");
     const handleSubmit = (e) => {
         e.preventDefault();
-        let id = e.target.name.value
-        window.localStorage.setItem("Improv", JSON.stringify(user));
-        setShow(false)
-        window.location = `/Game/${id}`
+        let user = {
+            name: JSON.parse(player).name,
+            id: e.target.name.value
+        }
+        console.log(user)
+        fetch("http://localhost:3000/gamerooms/join", {
+            method: 'POST',
+            body: JSON.stringify(user),
+            headers: {
+                "Content-Type": "application/json"
+            },
+        }).then(r => r.json())
+        .then(game => console.log(game) )
+        
+        
+        // window.localStorage.setItem("Improv", JSON.stringify(user));
+        // setShow(false)
+        // window.location = `/Game/${id}`
 
     }
     return (

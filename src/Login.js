@@ -18,7 +18,7 @@ function Login() {
         }
         window.localStorage.setItem("Improv", JSON.stringify(user));
         setShow(false)
-        window.location = '/'
+        window.location = '/home'
 
     }
     return (
