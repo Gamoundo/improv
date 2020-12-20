@@ -2,11 +2,13 @@
 import React, { useState } from 'react';
 import Modal from "react-bootstrap/Modal"
 import ReactPlayer from "react-player"
+import {useHistory} from "react-router-dom"
 
     
 
 
-function Login() {
+function Login(props) {
+    const history = useHistory()
     const [show, setShow] = useState(true);
     // const handleClose = () =>  setShow(false);
     const handleShow = () =>  setShow(true);
@@ -17,8 +19,9 @@ function Login() {
             name: e.target.name.value
         }
         window.localStorage.setItem("Improv", JSON.stringify(user));
+        props.updateUser(user.name)
         setShow(false)
-        window.location = '/home'
+        history.push('/')
 
     }
     return (

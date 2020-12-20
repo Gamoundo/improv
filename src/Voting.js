@@ -9,10 +9,14 @@ const emotions = [
 
 
 function Voting() {
+
+    const changeHandler = (e) => {
+        console.log(e)
+    }
     return(
         <div className='select'>
 <h3> Vote!</h3>
-<Select options={emotions}/>
+<Select onChange={changeHandler} options={emotions}/>
         </div>
     )
 }

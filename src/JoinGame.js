@@ -1,32 +1,42 @@
 import React, { useState } from 'react';
 import Modal from "react-bootstrap/Modal"
 import ReactPlayer from "react-player"
+import {useHistory} from "react-router-dom"
 
-function JoinGame() {
+function JoinGame(props) {
+    const history= useHistory()
     const [show, setShow] = useState(false);
     const handleClose = () =>  setShow(false);
     const handleShow = () =>  setShow(true);
     const player= window.localStorage.getItem("Improv");
     const handleSubmit = (e) => {
         e.preventDefault();
+        console.log(e.target.name.value)
         let user = {
             name: JSON.parse(player).name,
-            id: e.target.name.value
+            id: e.target.gameId.value
         }
         console.log(user)
-        fetch("http://localhost:3000/gamerooms/join", {
+        fetch("http://localhost:3000/join", {
             method: 'POST',
             body: JSON.stringify(user),
             headers: {
                 "Content-Type": "application/json"
             },
         }).then(r => r.json())
-        .then(game => console.log(game) )
+        .then(game => {
+            
+            console.log(game) 
+           props.updateGame(game)     
+            
+        setShow(false)
+        history.push(`/Game/${game.id}`)
+        }
+        )
         
         
         // window.localStorage.setItem("Improv", JSON.stringify(user));
-        // setShow(false)
-        // window.location = `/Game/${id}`
+        
 
     }
     return (
@@ -44,7 +54,7 @@ function JoinGame() {
                     <Modal.Body>
                         <form onSubmit={handleSubmit}>
                             <div>
-                            <input type="number" name="Game Id" />
+                            <input type="number" name="gameId" />
                             <label htmlFor="id">Id</label> 
                             </div>
                             
