@@ -11,7 +11,8 @@ const emotions = [
 function Voting() {
 
     const changeHandler = (e) => {
-        console.log(e)
+        // e.label
+        
     }
     return(
         <div className='select'>

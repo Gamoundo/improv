@@ -7,6 +7,7 @@ import Voting from './Voting';
 class Game extends React.Component{
     state = {
       users : []
+      
     }
 
  changeStory() {
@@ -18,7 +19,7 @@ componentDidUpdate() {
   // if (this.props.gamestate){
 
   // }
-  this.props.gameState.game.users.length !== this.state.users.length && this.setState({users :  this.props.gameState.game.users})
+  this.props.gameState.gameInfo.game.users.length !== this.state.users.length && this.setState({users :  this.props.gameState.gameInfo.game.users})
 
 }
 

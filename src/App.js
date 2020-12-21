@@ -18,7 +18,7 @@ class App extends React.Component {
 
 state = {
   name: storedUser ? JSON.parse(storedUser).name : "",
-  game: {},
+  gameInfo: {},
   currentUser: {}
 }
 
@@ -48,8 +48,8 @@ playGame() {
 
 // }
 
-updateGame= (game) => {
-this.setState({...this.state, game})
+updateGame= (gameInfo) => {
+this.setState({...this.state, gameInfo})
 } 
 
 updateUser= (name) => {

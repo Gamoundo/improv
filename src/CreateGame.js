@@ -18,11 +18,11 @@ function CreateGame(props) {
       
         }
           ).then(r => r.json())
-          .then(game => {
-            console.log(game)
+          .then(gameInfo => {
+            console.log(gameInfo)
             
-            props.updateGame(game)
-            history.push(`/Game/${game.id}`) 
+            props.updateGame(gameInfo)
+            history.push(`/Game/${gameInfo.game.id}`) 
           })
       
       }
