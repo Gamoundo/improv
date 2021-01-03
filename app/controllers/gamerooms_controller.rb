@@ -15,12 +15,16 @@ def join
         if game
             user = User.create({name: request.params['name'], points: 0, gameroom_id: game.id})
             game.update({player_id: user.id})
-            render json: game
+            render json: {game: game , currentUser: user}
         else
             render json: {error: "that game is unavailable"}
         end
 end
 
+def index
+    games = Gameroom.all
+    render json: games
+end
 
 
 
