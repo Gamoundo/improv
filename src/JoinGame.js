@@ -11,7 +11,7 @@ function JoinGame(props) {
     const player= window.localStorage.getItem("Improv");
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(e.target.name.value)
+        console.log(e.target.value)
         let user = {
             name: JSON.parse(player).name,
             id: e.target.gameId.value
@@ -24,13 +24,13 @@ function JoinGame(props) {
                 "Content-Type": "application/json"
             },
         }).then(r => r.json())
-        .then(game => {
+        .then(gameInfo => {
             
-            console.log(game) 
-           props.updateGame(game)     
+            console.log(gameInfo) 
+           props.updateGame(gameInfo)     
             
         setShow(false)
-        history.push(`/Game/${game.id}`)
+        history.push(`/Game/${gameInfo.game.id}`)
         }
         )
         

@@ -4,7 +4,7 @@ import Voting from './Voting';
 class Timer extends React.Component {
  
  state = {
-    time: 10
+    time: 150
  }
 
  componentDidMount() {
