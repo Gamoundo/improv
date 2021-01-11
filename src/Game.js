@@ -6,7 +6,8 @@ import Voting from './Voting';
 
 class Game extends React.Component{
     state = {
-      users : []
+      users : [],
+      currentUser: ""
       
     }
 
@@ -33,6 +34,24 @@ console.log(this.state)
     </div>
   )
 }))
+}
+
+round() {
+  for (let i = 0; i < 3; i++) {
+    users= this.state.users
+    for (let x = 0; x < users.length; x++) {
+      const currentUser = array[x];
+      this.setState({currentUser})
+      return (
+        <div className="situation">
+          <p> Situation: {situations[Math.floor(Math.random()* situations.length)]}</p>
+          {currentUser == user.name && <p> Help: {help[Math.floor(Math.random()* help.length)]}</p>}
+          {currentUser == user.name && <p> Emotion: {emotions[Math.floor(Math.random()* emotions.length)]}</p>}
+        </div>
+      )
+    }
+    
+  }
 }
 
 render() {
