@@ -49,6 +49,7 @@ playGame() {
 // }
 
 updateGame= (gameInfo) => {
+  
 this.setState({...this.state, gameInfo})
 } 
 

@@ -36,23 +36,7 @@ console.log(this.state)
 }))
 }
 
-round() {
-  for (let i = 0; i < 3; i++) {
-    users= this.state.users
-    for (let x = 0; x < users.length; x++) {
-      const currentUser = array[x];
-      this.setState({currentUser})
-      return (
-        <div className="situation">
-          <p> Situation: {situations[Math.floor(Math.random()* situations.length)]}</p>
-          {currentUser == user.name && <p> Help: {help[Math.floor(Math.random()* help.length)]}</p>}
-          {currentUser == user.name && <p> Emotion: {emotions[Math.floor(Math.random()* emotions.length)]}</p>}
-        </div>
-      )
-    }
-    
-  }
-}
+
 
 render() {
   console.log(this.state)
@@ -60,6 +44,24 @@ render() {
 let help = ["graham crackers", "interpretive dance", "diplomacy", "hidden bobby pin", "smoke bomb", "hug", "singing", "pineapple pizza", "black belt in..."]
 
 let emotions = ["happy", "sad", "confused", "scared"]
+//  let round= () => {
+//   for (let i = 1; i < 3; i++) {
+//     users= this.state.users
+//     for (let x = 0; x < users.length; x++) {
+//       const currentUser = users[x];
+//       this.setState({currentUser})
+//       return (
+//         <div className="situation">
+//           <p> Situation: {situations[Math.floor(Math.random()* situations.length)]}</p>
+//           <p> Help: {help[Math.floor(Math.random()* help.length)]}</p>
+//           {currentUser == user.name && <p> Emotion: {emotions[Math.floor(Math.random()* emotions.length)]}</p>}
+//         </div>
+//       )
+//     }
+    
+//   }
+// }
+
 return (
     <div className="App">
       <img src="https://pm1.narvii.com/5718/5b8a185d6f2cdb082383682653251e5d18131292_00.jpg" alt="anime speech search"/>
