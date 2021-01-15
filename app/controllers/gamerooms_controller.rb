@@ -15,7 +15,7 @@ def join
         if game
             user = User.create({name: request.params['name'], points: 0, gameroom_id: game.id})
             game.update({player_id: user.id})
-            render json: {game: game , currentUser: user}
+            render json: {game: GameroomSerializer.new(game) , currentUser: user}
         else
             render json: {error: "that game is unavailable"}
         end
