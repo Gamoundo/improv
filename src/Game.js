@@ -15,8 +15,9 @@ class Game extends React.Component{
   localStorage.clear()
   window.location = '/'
 } 
-componentDidUpdate() {
+componentDidUpdate = () => {
   console.log("hi")
+  console.log(this.props.gameState)
   // if (this.props.gamestate){
 
   // }

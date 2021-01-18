@@ -4,6 +4,7 @@ import ReactPlayer from "react-player"
 import {useHistory} from "react-router-dom"
 
 function JoinGame(props) {
+    console.log(props)
     const history= useHistory()
     const [show, setShow] = useState(false);
     const handleClose = () =>  setShow(false);
