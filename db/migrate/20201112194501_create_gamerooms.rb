@@ -4,6 +4,7 @@ class CreateGamerooms < ActiveRecord::Migration[6.0]
       t.integer :rounds
       t.integer :playersnum
       t.integer :player_id
+      
       t.timestamps
     end
   end
