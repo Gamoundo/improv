@@ -29,7 +29,7 @@ function JoinGame(props) {
             
             console.log(gameInfo) 
            props.updateGame(gameInfo)     
-            
+           window.localStorage.setItem("Improv", JSON.stringify(gameInfo.currentUser))
         setShow(false)
         history.push(`/Game/${gameInfo.game.id}`)
         }

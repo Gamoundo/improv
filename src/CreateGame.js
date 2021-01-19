@@ -20,7 +20,7 @@ function CreateGame(props) {
           ).then(r => r.json())
           .then(gameInfo => {
             console.log(gameInfo)
-            
+            window.localStorage.setItem("Improv", JSON.stringify(gameInfo.currentUser))
             props.updateGame(gameInfo)
             history.push(`/Game/${gameInfo.game.id}`) 
           })
