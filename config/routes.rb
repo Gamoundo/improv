@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :emotions
+  resources :solutions
+  resources :situations
   resources :user_gamerooms
   resources :gamerooms
   resources :users
