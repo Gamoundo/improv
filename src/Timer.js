@@ -4,7 +4,7 @@ import Voting from './Voting';
 class Timer extends React.Component {
  
  state = {
-    time: 150
+    time: 5
  }
 
  componentDidMount() {
@@ -28,7 +28,7 @@ class Timer extends React.Component {
      return(
          <div>
              {this.state.time}
-             {this.state.time === 0 && <Voting />}
+             {this.state.time === 0 &&  !this.props.currentPlayer && <Voting playerId={this.props.playerId} gameId={this.props.gameId} emotions={this.props.emotions}/>}
          </div>
      )
  }   

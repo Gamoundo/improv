@@ -12,6 +12,7 @@ function JoinGame(props) {
     const player= window.localStorage.getItem("Improv");
     const handleSubmit = (e) => {
         e.preventDefault();
+
         console.log(e.target.value)
         let user = {
             name: JSON.parse(player).name,

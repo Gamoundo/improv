@@ -21,7 +21,7 @@ function Login(props) {
         window.localStorage.setItem("Improv", JSON.stringify(user));
         props.updateUser(user.name)
         setShow(false)
-        history.push('/')
+        // history.push('/')
 
     }
     return (

@@ -7,7 +7,10 @@ import Voting from './Voting';
 class Game extends React.Component{
     state = {
       
-      currentUser: ""
+      currentUser: "",
+      emotions: [],
+      situations: [],
+      solutions: [] 
       
     }
  loggedInUser = JSON.parse(window.localStorage.getItem("Improv"))
@@ -25,7 +28,20 @@ class Game extends React.Component{
 //   this.props.gameState.gameInfo.game.users.length !== this.state.users.length && this.setState({users :  this.props.gameState.gameInfo.game.users})
 
 // }
+componentDidMount() {
+  fetch("http://localhost:3000/emotions")
+  .then(r => r.json())
+  .then(emotions => this.setState({ emotions }));
 
+  fetch("http://localhost:3000/solutions")
+  .then(r => r.json())
+  .then(solutions => this.setState({ solutions }));
+
+  fetch("http://localhost:3000/situations")
+  .then(r => r.json())
+  .then(situations => this.setState({ situations }));
+
+}
 
 displayUsers()  {
 console.log(this.state)
@@ -38,24 +54,23 @@ console.log(this.state)
 }))
 }
  round= () => {
-  let situations = ["shark attack", "stubbed toe", "totaled boss's car", "vengeful ghost", "caught committing crime", "It is M-fing Monday!", "Surrounded by clowns", "World ends in a hour", "Witnessed an alien abduction", "Ran out of goldfish", "trapped with a shapehifter", "Out of coffee"]
-  let help = ["graham crackers", "interpretive dance", "diplomacy", "hidden bobby pin", "smoke bomb", "hug", "singing", "pineapple pizza", "black belt in..."]
   
-  let emotions = ["happy", "sad", "confused", "scared"]
+ 
     
     
   const Orator = this.props.gameState.gameInfo.game.player_id;
-   
+   console.log(Orator)
+   console.log(this.loggedInUser)
   // this.setState({currentUser: Orator})
   return (
     <div className="situation">
       <h2> {Orator} is now speaking</h2>
-    <Timer/>
+    <Timer currentPlayer={Orator ==  this.loggedInUser.id} playerId={this.loggedInUser.id} gameId={this.props.gameState.gameState.game.id} emotions={this.state.emotions}/>
     <div className="users"> {this.props.gameState.gameInfo.game && this.displayUsers()}</div>
-      
-      <p> Situation: {situations[Math.floor(Math.random()* situations.length)]}</p>
-      <p> Help: {help[Math.floor(Math.random()* help.length)]}</p>
-      {Orator ==  this.loggedInUser.id &&  <p> Emotion: {emotions[Math.floor(Math.random()* emotions.length)]}</p>}
+    
+       {this.state.situations.length && <p> Situation: {this.state.situations[Math.floor(Math.random()* this.state.situations.length)].problem}</p>}
+      <p> Help: {this.state.solutions.length && this.state.solutions[Math.floor(Math.random()* this.state.solutions.length)].help}</p>
+      {Orator ==  this.loggedInUser.id && this.state.emotions.length &&  <p> Emotion: {this.state.emotions[Math.floor(Math.random()* this.state.emotions.length)].feeling}</p>}
       <button onClick= {this.changeStory}> log out?</button>
     </div>
   )

@@ -60,6 +60,7 @@ updateUser= (name) => {
 
 render() {
   console.log(this.state)
+  console.log(storedUser)
     return (
     
       <Router>
@@ -77,7 +78,7 @@ render() {
           </div>
         {this.state.name !== "" && <JoinGame updateGame={this.updateGame} />}
         {this.state.name !== "" && <CreateGame name={this.state.name} updateGame={this.updateGame}/>}
-        {this.state.name === "" && <Login  updateUser={this.updateUser}/>}
+        {this.state.name == "" && <Login  updateUser={this.updateUser}/>}
         {/* <Game /> */}
 
         
