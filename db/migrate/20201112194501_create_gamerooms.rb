@@ -4,6 +4,9 @@ class CreateGamerooms < ActiveRecord::Migration[6.0]
       t.integer :rounds
       t.integer :playersnum
       t.integer :player_id
+      t.integer :situation_id
+      t.integer :solution_id
+      t.integer :emotion_id
       
       t.timestamps
     end

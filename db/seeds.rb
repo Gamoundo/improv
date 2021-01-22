@@ -5,6 +5,14 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+User.destroy_all
+Gameroom.destroy_all
+Solution.destroy_all
+Situation.destroy_all
+Emotion.destroy_all
+
+
+
 sharkAttack = Situation.create!({problem: "shark attack"})
 spaceShip = Situation.create!({problem: "Woke up on a space shuttle"})
 zombieBite = Situation.create!({problem: "You were bitten by a zombie"})
